@@ -1,0 +1,41 @@
+{
+  "name": "retail_discount_app",
+  "version": "1.0.0",
+  "description": "retail discount app",
+  "main": "dist/app.js",
+  "scripts": {
+    "test": "mocha -r ts-node/register tests/*.test.ts",
+    "start": "tsc && node dist/app.js",
+    "test-coverage": "nyc mocha -r ts-node/register tests/*.test.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "private"
+  },
+  "nyc": {
+    "extension": [
+      ".ts"
+    ],
+    "exclude": [
+      "**/*.d.ts",
+      "**/*.test.ts"
+    ],
+    "reporter": [
+      "text"
+    ],
+    "all": true
+  },
+  "author": "akshay jain",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/mocha": "^5.2.7",
+    "chai": "^4.2.0",
+    "mocha": "^6.2.0",
+    "nyc": "^14.1.1",
+    "source-map-support": "^0.5.12",
+    "ts-node": "^8.3.0",
+    "tslint": "^5.18.0",
+    "typescript": "^3.5.3"
+  }
+}
