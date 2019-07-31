@@ -75,13 +75,13 @@ describe('Item', function() {
       assert.equal(newItem.calculatePriceForQuantity(10),100);
     });
   });
-  describe('Product Type Grocery --> With category pricing strategy', function() {
+  describe('Item is a Grocery --> Included Discount Category as Grocery', function() {
     it('should be equal to quantity * unit price * discountFactor', function() {
       const newItem = new CategoryPricing(item,PRODUCT_TYPE.GROCERY,30);
       assert.equal(newItem.calculatePriceForQuantity(10),70);
     });
   });
-  describe('Product Type Others --> With category pricing strategy', function() {
+  describe('Item is a Grocery --> Included Discount Category as Other', function() {
     it('should be equal to quantity * unit price', function() {
       const newItem = new CategoryPricing(item,PRODUCT_TYPE.OTHER,30);
       assert.equal(newItem.calculatePriceForQuantity(10),100);
