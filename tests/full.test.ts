@@ -75,16 +75,18 @@ describe('Item', function() {
       assert.equal(newItem.calculatePriceForQuantity(10),100);
     });
   });
-  describe('Item is a Grocery --> Included Discount Category as Grocery', function() {
-    it('should be equal to quantity * unit price * discountFactor', function() {
-      const newItem = new CategoryPricing(item,PRODUCT_TYPE.GROCERY,30);
-      assert.equal(newItem.calculatePriceForQuantity(10),70);
-    });
-  });
-  describe('Item is a Grocery --> Included Discount Category as Other', function() {
+  describe('Item is a Grocery --> Included Discount applied on Category Others', function() {
     it('should be equal to quantity * unit price', function() {
       const newItem = new CategoryPricing(item,PRODUCT_TYPE.OTHER,30);
       assert.equal(newItem.calculatePriceForQuantity(10),100);
+    });
+  });
+  describe('Item is a OTHER --> Included Discount applied on Category Others', function() {
+    it('should be equal to quantity * unit price * discountFactor', function() {
+      const newItem = new CategoryPricing(
+          new Product('Juincer',10,PRODUCT_TYPE.OTHER)
+          ,PRODUCT_TYPE.OTHER,30);
+      assert.equal(newItem.calculatePriceForQuantity(10),70);
     });
   });
 });
